@@ -224,6 +224,9 @@ class Attachment {
         }elseif (($filename = $this->part->filename) !== null) {
             $this->setName($filename);
             $this->disposition = $this->part->disposition;
+        }else {
+            $this->setName($this->part->disposition);
+            $this->disposition = $this->part->disposition;
         }
 
         if (IMAP::ATTACHMENT_TYPE_MESSAGE == $this->part->type) {
